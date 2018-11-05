@@ -1,4 +1,4 @@
-# Title
+# Greed
 
 ## Learning Goals
 
@@ -8,6 +8,14 @@
 - Construct game logic using conditionals
 
 ## Introduction
+
+```sh
+Welcome to
+   _____ _____ _____ _____ ____  
+  |   __| __  |   __|   __|    \
+  |  |  |    -|   __|   __|  |  |
+  |_____|__|__|_____|_____|____/
+```
 
 In some of our previous lessons, we worked on building the basics of a dice
 throwing game. Now, it is time to put that code to use and implement a fully
@@ -28,32 +36,14 @@ focus of this lab is to build the game logic, so all necessary messages for the
 command line are already provided for you in `lib/message.rb`.
 
 Read the rules of Greed in the next section to familiarize yourself. There are
-many ways to write a working solution, so for this lab, the tests will be mainly
-checking for correct _behavior_. So, for example, when a game is started, you
-will need to use the correct combination of messages to display the following:
+many ways to write a working solution, but for testing purposes, functionality
+should be separated into the following methods.
 
-```sh
-Welcome to
-   _____ _____ _____ _____ ____  
-  |   __| __  |   __|   __|    \
-  |  |  |    -|   __|   __|  |  |
-  |_____|__|__|_____|_____|____/
-
-Please enter the number of players (2-6):
-
-Choice:
-```
-
-The name and structure of the method that calls the messages in correct order
-is up to you.
-
-The one exception to this is that you must include a method,
 `calculate_points(dice_array)`, in your Greed class. This method takes in any
 array of integers of any length and returns the correct total point value, based
 on the rules of Greed explained below.
 
-The `Player` class is optional, but it is recommended that you use it
-to keep track of individual player scores.
+The `Player` class should be used to keep track of individual player scores.
 
 A game of greed should be started by calling `Greed.new()`. If you would like to
 play and test as you work, run `ruby bin/start.rb` to start a new game.
@@ -61,6 +51,10 @@ play and test as you work, run `ruby bin/start.rb` to start a new game.
 Run `learn` as you work through your logic to see your progress. When you've
 passed all tests, you should have a fully working game, able to handle the
 various decisions involved in the game.
+
+**Note:** Since you'll be dealing with loops and conditionals, tests will
+automatically time out after 5 seconds if stuck in an infinite loop while
+testing your solution.
 
 ## Rules of Greed
 

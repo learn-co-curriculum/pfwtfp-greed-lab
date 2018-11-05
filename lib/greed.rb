@@ -3,6 +3,10 @@ require_relative './message.rb'
 
 class Greed
 
+  def initialize
+    @players = []
+  end
+
   def opening_prompt
     loop do
       Message.welcome
@@ -16,9 +20,9 @@ class Greed
 
   def start_game
     @player_count = opening_prompt
-    @players = []
+
     @player_count.times do |i|
-      @players << Player.new("Player #{i+1}")
+      @players << Player.new(i+1)
     end
 
     loop do
@@ -26,7 +30,7 @@ class Greed
         turn_over = false
         while turn_over == false do
           Message.current_scores(@players)
-          Message.new_roll(player)
+          Message.new_turn(player)
           turn_over = take_turn(player)
           exit if winner?
         end
@@ -60,7 +64,7 @@ class Greed
           existing_points += calculate_points(array)
         }
         Message.current_scores(@players)
-        Message.new_roll(player)
+        Message.new_turn(player)
         Message.saved_dice(saved_dice_array, existing_points)
         Message.roll_results(player, dice_array, points)
         Message.roll_options(points, existing_points)
@@ -69,7 +73,7 @@ class Greed
 
         case choice
         when 1
-          player.add_to_score(points+existing_points)
+          player.score += points+existing_points
           Message.end_turn(player, points+existing_points)
           press_enter_for_next_turn
           return true
