@@ -18,11 +18,12 @@ Welcome to
 ```
 
 In some of our previous lessons, we worked on building the basics of a dice
-throwing game. Now, it is time to put that code to use and implement a fully
-functioning command line game, [Greed]. Greed is a game where players compete to
-reach 10000 points. Each turn, players roll a set of six dice for the chance to
-collect points and must choose between multiple options: play it safe or risk
-everything and potentially win big!
+throwing game. Now, it is time to put that code to use and implement a
+fully-functioning command line game, [Greed]. Greed is a game where players
+compete to reach 10000 points. Each turn, players roll a set of six dice for
+the chance to collect points. However with this chance comes risk: at the end
+of their turn they must make a fateful decision: play it safe or risk
+everything (and potentially win big)!
 
 In this lab, you are tasked with building the game logic for Greed using object
 oriented Ruby. You will need to apply many concepts discussed in previous
@@ -35,19 +36,18 @@ to a command line interface means lots of reoccurring messages to display. The
 focus of this lab is to build the game logic, so all necessary messages for the
 command line are already provided for you in `lib/message.rb`.
 
-Read the rules of Greed in the next section to familiarize yourself. There are
-many ways to write a working solution, but for testing purposes, functionality
-should be separated into the following methods:
+Read the [**Rules of Greed**](#rules) in the next section to familiarize
+yourself. There are many ways to write a working solution, but for testing
+purposes, functionality should be separated into the following methods:
 
-The one exception to this is that you must include a method,
-`calculate_points(dice_array)`, in your Greed class. This method takes in any
-array of integers of any length and returns the correct total point value, based
-on the rules of Greed explained below.
-
-The `Player` class should be used to keep track of individual player scores.
-
-A game of greed should be started by calling `Greed.new()`. If you would like to
-play and test as you work, run `ruby bin/start.rb` to start a new game.
+* `Greed` class
+  * Must have `#calculate_points(dice)`: Takes a collection of `Integer`s and
+    returns the correct total point value, based on the rules of Greed
+    explained below.
+  * When `new()` is called, a new game should begin. While you're iterating
+    towards your solution, run `ruby bin/start.rb` to start a new game.
+* `Player` class
+  * <How? Where?> should be used to keep track of individual player scores.
 
 Run `learn` as you work through your logic to see your progress. When you've
 passed all tests, you should have a fully working game, able to handle the
@@ -56,6 +56,8 @@ various decisions involved in the game.
 **Note:** Since you'll be dealing with loops and conditionals, tests will
 automatically time out after 5 seconds if stuck in an infinite loop while
 testing your solution.
+
+<a name=rules"></a>
 
 ## Rules of Greed
 
